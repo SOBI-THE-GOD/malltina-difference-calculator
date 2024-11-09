@@ -8,12 +8,30 @@
         <script src="script.js" defer></script>
     </head>
     <body>
+        <div class="input-labels">
+            <span>وزن :</span>
+            <span>قیمت :</span>
+        </div>
+        <div class="inputs-container">
+            <input
+                type="text"
+                name="final-weight"
+                id="weight"
+                placeholder="وزن جدید به گرم"
+            />
+            <input
+                type="text"
+                name="currency-price"
+                id="currency"
+                placeholder="قیمت دلار به تومان"
+            />
+        </div>
         <div class="calculation-result">
             <div class="first-result">جرم نهایی کالا » 00 گرم</div>
             <div class="second-result">
                 مابه تفاوت وزنی به مبلغ 00 تومان پرداخت گردد
             </div>
         </div>
-        <button class="reset-btn">RESET</button>
+        <button class="calc-btn">Calculate</button>
     </body>
 </html>
