@@ -312,15 +312,30 @@ function Btn({ name, cPrice, setAlertBody, timeoutIDs, weight, setPopup }) {
     return (
         <button
             onClick={
-                name === "note"
+                cPrice && weight
                     ? () => {
-                          makeNote(cPrice, weight);
+                          if (name === "note") {
+                              makeNote(cPrice, weight);
+                          } else if (name === "ticket") {
+                              openPopup();
+                          }
                       }
-                    : name === "ticket"
-                    ? () => {
-                          openPopup();
+                    : () => {
+                          const alertMessage = "information is not complete!";
+                          clearTimeout(timeoutIDs.alert);
+                          setAlertBody({
+                              message: alertMessage,
+                              type: "Err",
+                              show: true,
+                          });
+                          timeoutIDs.alert = setTimeout(() => {
+                              setAlertBody({
+                                  message: alertMessage,
+                                  type: "Err",
+                                  show: false,
+                              });
+                          }, 2500);
                       }
-                    : () => {}
             }
             className="text-white bg-black rounded-full font-semibold px-3 py-3 flex-1 uppercase tracking-wide transition-all hover:scale-[1.015] active:scale-100"
         >
