@@ -8,7 +8,7 @@ import China from "../pages/China";
 const routes = createBrowserRouter([
     {
         element: <MainLayout />,
-        path: "/nalltina-difference-calculator/",
+        path: "/",
         children: [
             {
                 path: "ranjbar",
