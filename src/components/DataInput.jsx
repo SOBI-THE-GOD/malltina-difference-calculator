@@ -14,6 +14,7 @@ export function DataInput({
     resetPholderClass = false,
     resetInputClass = false,
     containerClass = "",
+    type = "Number",
 }) {
     const inputRef = useRef(null);
     const placeHolderRef = useRef(null);
@@ -68,7 +69,11 @@ export function DataInput({
                 onBlur={handleOnBlur}
                 ref={inputRef}
                 onChange={() => {
-                    setState(Number(inputRef.current.value));
+                    setState(
+                        type === "Number"
+                            ? Number(inputRef.current.value)
+                            : inputRef.current.value
+                    );
                 }}
             />
             <span
