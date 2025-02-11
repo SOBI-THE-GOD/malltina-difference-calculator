@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import { Outlet } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react"
 
 const MainLayout = () => (
     <>
@@ -7,6 +8,7 @@ const MainLayout = () => (
         <main>
             <Outlet />
         </main>
+        <Analytics />
     </>
 );
 
