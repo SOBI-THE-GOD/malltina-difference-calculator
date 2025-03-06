@@ -50,6 +50,9 @@ const UnitedState = () => {
 			express,
 		});
 	}, [lastWeight, newWeight, cPrice, express]);
+	const separatedDiff = useMemo(() => {
+		return separateNum(difference);
+	}, [difference]);
 	const { alert, showAlert, terminateAlert } = useAlert();
 	const inputs = [
 		{
@@ -91,7 +94,7 @@ const UnitedState = () => {
 		if (difference) {
 			copyToNavigator(
 				`جرم نهایی کالا  »  ${newWeight} گرم
-                مابه تفاوت وزنی به مبلغ ${separateNum(difference)} تومان پرداخت گردد`,
+                مابه تفاوت وزنی به مبلغ ${separatedDiff} تومان پرداخت گردد`,
 				"note",
 				showAlert,
 			);
@@ -114,7 +117,7 @@ const UnitedState = () => {
 		copyToNavigator(
 			`درود بر شما
     ${userName || "مشتری"} عزیز
-    سفارش شما با کد  ${orderID} ، به انبار ایران رسیده و وزن گیری شده است . با توجه به اینکه وزن نهایی کالای شما ${newWeight} گرم می باشد مبلغ ${difference} تومان مابه التفاوت وزنی به سفارش شما تعلق گرفته است .
+    سفارش شما با کد  ${orderID} ، به انبار ایران رسیده و وزن گیری شده است . با توجه به اینکه وزن نهایی کالای شما ${newWeight} گرم می باشد مبلغ ${separatedDiff} تومان مابه التفاوت وزنی به سفارش شما تعلق گرفته است .
     لطفا پس از پرداخت اطلاع دهید تا کالا خدمتتان ارسال گردد.
     با سپاس`,
 			"ticket",
