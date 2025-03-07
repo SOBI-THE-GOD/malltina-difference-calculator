@@ -24,7 +24,7 @@ export function DataInput({
 		placeHolderRef.current.style.cssText = `
             top: 0;
             scale: 0.9;
-            color: #000;
+            color: #ffffff;
         `;
 	}
 	function handleOnBlur() {
@@ -78,7 +78,7 @@ export function DataInput({
 				name={placeHolder}
 				className={`${
 					!resetInputClass &&
-					"outline-none border-solid border-2 border-gray-300 w-full rounded-full shadow-md py-3 px-11"
+					"text-secondary outline-none border-solid border-2 border-neutral-700 w-full rounded-full shadow-md py-3 px-11 bg-primary"
 				} ${inputClass}`}
 				onFocus={handleOnFocus}
 				onBlur={handleOnBlur}
@@ -95,7 +95,7 @@ export function DataInput({
 			<span
 				className={`${
 					!resetPholderClass &&
-					"absolute transition-all top-1/2 left-11 -translate-y-1/2 bg-white text-gray-500 px-2 rounded-full capitalize"
+					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-400 px-2 rounded-full capitalize bg-primary"
 				} ${pholderClass}`}
 				ref={placeHolderRef}
 				onClick={() => {

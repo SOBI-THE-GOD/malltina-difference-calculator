@@ -11,7 +11,7 @@ export function Btn({
 			type={type}
 			className={`${
 				!resetClass &&
-				"text-white bg-black rounded-full font-semibold px-10 py-3 flex-1 uppercase tracking-wide transition-all hover:scale-[1.015] active:scale-100"
+				"text-primary bg-secondary rounded-full font-bold px-10 py-3 flex-1 uppercase tracking-wide transition-all hover:scale-[1.015] active:scale-100"
 			} ${btnClass}`}
 		>
 			{children}

@@ -177,14 +177,14 @@ const UnitedState = () => {
 							);
 						})}
 						<div className="flex items-center justify-around flex-auto">
-							<label className="font-semibold text-lg capitalize">
+							<label className="font-semibold text-lg capitalize text-secondary">
 								express delievery :
 							</label>
 							<input
 								type="checkbox"
 								name="express delievery"
 								defaultChecked
-								className="accent-black h-4 w-4"
+								className="accent-secondary h-4 w-4"
 								onChange={changeExpress}
 							/>
 						</div>
