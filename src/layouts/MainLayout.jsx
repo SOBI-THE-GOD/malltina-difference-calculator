@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
 const MainLayout = () => (
-	<div className="bg-primary min-h-dvh">
+	<div className="bg-primary min-h-dvh font-sans">
 		<Nav />
 		<main>
 			<Outlet />

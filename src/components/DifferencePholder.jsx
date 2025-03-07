@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { separateNum } from "../helpers/separateNum";
 
-export const DifferencePholder = ({ difference = "---" }) => {
+export const DifferencePholder = ({ difference = null }) => {
 	const separatedDiff = useMemo(() => {
 		return separateNum(difference);
 	}, [difference]);

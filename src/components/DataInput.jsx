@@ -21,16 +21,19 @@ export function DataInput({
 	const inputRef = useRef(null);
 	const placeHolderRef = useRef(null);
 	function handleOnFocus() {
-		placeHolderRef.current.style.cssText = `
+		const placeHolder = placeHolderRef.current;
+		placeHolder.style.cssText = `
             top: 0;
             scale: 0.9;
-            color: #ffffff;
         `;
+		placeHolder.classList.add("text-tertiary");
 	}
 	function handleOnBlur() {
 		const input = inputRef.current;
 		if (input.value.trim().length == 0) {
-			placeHolderRef.current.style.cssText = "";
+			const placeHolder = placeHolderRef.current;
+			placeHolder.style.cssText = "";
+			placeHolder.classList.remove("text-tertiary");
 			input.value = "";
 		}
 	}
@@ -78,7 +81,7 @@ export function DataInput({
 				name={placeHolder}
 				className={`${
 					!resetInputClass &&
-					"text-secondary outline-none border-solid border-2 border-neutral-700 w-full rounded-full shadow-md py-3 px-11 bg-primary"
+					"text-secondary outline-none border-solid border-2 border-quaternary w-full rounded-full shadow-md py-3 px-11 bg-primary"
 				} ${inputClass}`}
 				onFocus={handleOnFocus}
 				onBlur={handleOnBlur}
@@ -95,7 +98,7 @@ export function DataInput({
 			<span
 				className={`${
 					!resetPholderClass &&
-					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-400 px-2 rounded-full capitalize bg-primary"
+					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-400 px-2 rounded-full capitalize bg-primary font-semibold"
 				} ${pholderClass}`}
 				ref={placeHolderRef}
 				onClick={() => {

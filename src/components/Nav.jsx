@@ -32,15 +32,14 @@ const asiaDropDown = [
 		placeHolder: "united arab emirate",
 	},
 ];
-const navLinkClass = `text-primary text-sm font-bold capitalize hover:text-violet-950 transition-colors h-full flex items-center px-5`;
+const navLinkClass = `text-secondary text-sm font-bold capitalize hover:text-tertiary transition-colors h-full flex items-center justify-center px-5 grow`;
 const createNavLink = (linksArr, addClass = "") =>
 	linksArr.map(({ path, placeHolder }, key) => (
 		<NavLink
 			to={{ pathname: path }}
-			style={({ isActive }) => ({
-				color: isActive && "#2e1065",
-			})}
-			className={navLinkClass + ` ${addClass}`}
+			className={({ isActive }) =>
+				`${navLinkClass} ${isActive ? "text-tertiary" : ""} ${addClass}`
+			}
 			key={key}
 		>
 			{placeHolder}
@@ -53,7 +52,7 @@ const DropDownLink = ({ dropDownLinks, dropDownName = "more" }) => {
 		<li
 			className={
 				navLinkClass +
-				" list-none cursor-pointer relative hover:text-primary"
+				" list-none cursor-pointer relative hover:text-secondary"
 			}
 			onMouseEnter={() => setIsDropDownOpen(true)}
 			onMouseLeave={() => setIsDropDownOpen(false)}
@@ -65,10 +64,10 @@ const DropDownLink = ({ dropDownLinks, dropDownName = "more" }) => {
 				className="absolute h-2 top-3/4 sm:top-3/4 left-1/2 -translate-y-1/2 -translate-x-1/2"
 			/>
 			{isDropDownOpen && (
-				<div className="absolute top-full right-0 min-w-48 h-fit bg-secondary rounded-b-md pb-1 [&>*:not(:last-child)]:border-b-[2px]">
+				<div className="absolute top-[calc(100%-1px)] right-0 min-w-48 h-fit rounded-md pb-1 [&>*:not(:last-child)]:border-b-[2px] border border-tertiary border-solid border-t-0 bg-primary border-b-2">
 					{createNavLink(
 						dropDownLinks,
-						"block px-4 py-3 hover:bg-neutral-100 leading-none rounded-md border-neutral-100",
+						"block relative px-4 py-3 leading-none rounded-md border-violet-900 relative pr-12 text-nowrap after:content-['\u2BCD'] after:absolute after:top-1/2 after:right-2 after:transition-transform after:opacity-0 hover:after:-translate-x-1/2 hover:after:opacity-100 hover:after:rotate-180 after:-translate-y-1/2 after:-translate-x-4 !justify-start",
 					)}
 				</div>
 			)}
@@ -77,7 +76,7 @@ const DropDownLink = ({ dropDownLinks, dropDownName = "more" }) => {
 };
 const Nav = () => {
 	return (
-		<nav className="h-12 bg-secondary w-full flex justify-center items-center rounded-b-2xl m-auto sm:w-fit sm:px-7">
+		<nav className="h-12 w-full flex justify-evenly items-center border border-solid border-tertiary border-t-0 rounded-b-2xl m-auto sm:w-fit sm:px-7 sm:min-w-[24rem]">
 			{createNavLink(mainLinks)}
 			<DropDownLink dropDownLinks={asiaDropDown} dropDownName="asia" />
 			<DropDownLink dropDownLinks={dropDownLinks} dropDownName="more" />

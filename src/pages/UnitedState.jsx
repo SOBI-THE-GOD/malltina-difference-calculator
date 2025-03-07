@@ -184,7 +184,7 @@ const UnitedState = () => {
 								type="checkbox"
 								name="express delievery"
 								defaultChecked
-								className="accent-secondary h-4 w-4"
+								className="accent-tertiary h-4 w-4"
 								onChange={changeExpress}
 							/>
 						</div>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FormBox } from "../components/FormBox";
 import { DataInput } from "../components/DataInput";
+import { LittleContainer } from "../components/LittleContainer";
+import { Btn } from "../components/Btn";
 
 const UnitedArabEmirate = () => {
 	const [lastWeight, setLastWeight] = useState(0);
@@ -18,22 +20,47 @@ const UnitedArabEmirate = () => {
 		},
 	];
 
+	const openPopup = () => {
+		// if (difference) {
+		// 	setModal(true);
+		// } else {
+		// 	const alertMessage = "information is not complete!";
+		// 	showAlert(alertMessage, "Err");
+		// }
+	};
+	const buttons = [
+		{ name: "note", onClickAction: null, type: "submit" },
+		{ name: "ticket", onClickAction: openPopup, type: "button" },
+	];
+
 	return (
 		<FormBox title="united arab Emirate">
-			<div className="flex flex-wrap items-center justify-between gap-5">
-				{inputs.map(({ placeHolder, setState, state }, key) => {
+			{inputs.map(({ placeHolder, setState, state }, key) => {
+				return (
+					<DataInput
+						placeHolder={placeHolder}
+						state={state}
+						setState={setState}
+						key={key}
+						focusOnRender={key === 0}
+						containerClass="flex-auto"
+						type="Number"
+					/>
+				);
+			})}
+			<LittleContainer>
+				{buttons.map(({ name, onClickAction, type }, key) => {
 					return (
-						<DataInput
-							placeHolder={placeHolder}
-							state={state}
-							setState={setState}
+						<Btn
+							onClickAction={onClickAction}
+							type={type}
 							key={key}
-							focusOnRender={key === 0}
-							containerClass="flex-auto"
-						/>
+						>
+							{name}
+						</Btn>
 					);
 				})}
-			</div>
+			</LittleContainer>
 		</FormBox>
 	);
 };
