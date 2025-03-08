@@ -67,7 +67,7 @@ const DropDownLink = ({ dropDownLinks, dropDownName = "more" }) => {
 				<div className="absolute top-[calc(100%-1px)] right-0 min-w-48 h-fit rounded-md pb-1 [&>*:not(:last-child)]:border-b-[2px] border border-tertiary border-solid border-t-0 bg-primary border-b-2">
 					{createNavLink(
 						dropDownLinks,
-						"block relative px-4 py-3 leading-none rounded-md border-violet-900 relative pr-12 text-nowrap after:content-['\u2BCD'] after:absolute after:top-1/2 after:right-2 after:transition-transform after:opacity-0 hover:after:-translate-x-1/2 hover:after:opacity-100 hover:after:rotate-180 after:-translate-y-1/2 after:-translate-x-4 !justify-start",
+						"block relative px-4 py-3 leading-none rounded-md border-violet-900 relative pr-12 text-nowrap after:content-['✦'] after:absolute after:top-1/2 after:right-2 after:transition-transform after:opacity-0 hover:after:-translate-x-1/2 hover:after:opacity-100 after:text-secondary after:-translate-y-1/2 after:-translate-x-4 !justify-start",
 					)}
 				</div>
 			)}

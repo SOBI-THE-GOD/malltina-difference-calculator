@@ -26,14 +26,14 @@ export function DataInput({
             top: 0;
             scale: 0.9;
         `;
-		placeHolder.classList.add("text-tertiary");
+		placeHolder.classList.add("text-secondary");
 	}
 	function handleOnBlur() {
 		const input = inputRef.current;
 		if (input.value.trim().length == 0) {
 			const placeHolder = placeHolderRef.current;
 			placeHolder.style.cssText = "";
-			placeHolder.classList.remove("text-tertiary");
+			placeHolder.classList.remove("text-secondary");
 			input.value = "";
 		}
 	}
@@ -73,7 +73,7 @@ export function DataInput({
 			}
 			input.focus();
 		}
-	}, [state, focusOnRender]);
+	}, [state, focusOnRender, type]);
 	return (
 		<div className={"relative" + ` ${containerClass}`}>
 			<input
@@ -98,7 +98,7 @@ export function DataInput({
 			<span
 				className={`${
 					!resetPholderClass &&
-					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-400 px-2 rounded-full capitalize bg-primary font-semibold"
+					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-500 px-2 rounded-full capitalize bg-primary font-semibold"
 				} ${pholderClass}`}
 				ref={placeHolderRef}
 				onClick={() => {

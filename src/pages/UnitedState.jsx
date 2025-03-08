@@ -20,7 +20,7 @@ const calculateUSDIFF = ({ lastWeight, newWeight, cPrice, express }) => {
 		formulaParam = 34;
 	} else if (4000 < newWeight && newWeight <= 8000) {
 		formulaParam = 33;
-	} else if (8000 < newWeight && newWeight <= 10000) {
+	} else if (8000 < newWeight) {
 		formulaParam = 31;
 	} else {
 		formulaParam = 0;
