@@ -9,6 +9,7 @@ import { Btn } from "../components/Btn";
 import { LittleContainer } from "../components/LittleContainer";
 import { DifferencePholder } from "../components/DifferencePholder";
 import { separateNum } from "../helpers/separateNum";
+import { WrapBox } from "../components/WrapBox";
 
 function Ranjbar() {
 	const [weight, setWeight] = new useState(0);
@@ -93,18 +94,21 @@ function Ranjbar() {
 			)}
 			{!modal && (
 				<FormBox title="ranjbar difference" onSubmitAction={makeNote}>
-					{dataInputs.map((input, key) => {
-						return (
-							<DataInput
-								placeHolder={input.placeHolder}
-								setState={input.setState}
-								state={input.state}
-								showAlert={showAlert}
-								key={key}
-								focusOnRender={input?.focusOnRender && true}
-							/>
-						);
-					})}
+					<WrapBox>
+						{dataInputs.map((input, key) => {
+							return (
+								<DataInput
+									placeHolder={input.placeHolder}
+									setState={input.setState}
+									state={input.state}
+									showAlert={showAlert}
+									key={key}
+									focusOnRender={input?.focusOnRender && true}
+								/>
+							);
+						})}
+					</WrapBox>
+
 					<DifferencePholder difference={difference} />
 					<LittleContainer>
 						{buttonNames.map(

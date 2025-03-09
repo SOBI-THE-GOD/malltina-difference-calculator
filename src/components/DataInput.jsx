@@ -75,13 +75,13 @@ export function DataInput({
 		}
 	}, [state, focusOnRender, type]);
 	return (
-		<div className={"relative" + ` ${containerClass}`}>
+		<div className={"relative flex-auto basis-60" + ` ${containerClass}`}>
 			<input
 				type="text"
 				name={placeHolder}
 				className={`${
 					!resetInputClass &&
-					"text-secondary outline-none border-solid border-2 border-quaternary w-full rounded-full shadow-md py-3 px-11 bg-primary"
+					"text-secondary outline-none border-solid border-2 border-quaternary w-full rounded-2xl shadow-md py-3 px-11 bg-primary"
 				} ${inputClass}`}
 				onFocus={handleOnFocus}
 				onBlur={handleOnBlur}
@@ -98,7 +98,7 @@ export function DataInput({
 			<span
 				className={`${
 					!resetPholderClass &&
-					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-500 px-2 rounded-full capitalize bg-primary font-semibold"
+					"absolute transition-all top-1/2 left-11 -translate-y-1/2 text-neutral-500 px-2 rounded-full capitalize bg-primary font-semibold cursor-text"
 				} ${pholderClass}`}
 				ref={placeHolderRef}
 				onClick={() => {

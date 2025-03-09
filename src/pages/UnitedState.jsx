@@ -9,6 +9,7 @@ import { Btn } from "../components/Btn";
 import { copyToNavigator } from "../helpers/copyToNavigator";
 import { FullModal } from "../components/FullModal";
 import { separateNum } from "../helpers/separateNum";
+import { WrapBox } from "../components/WrapBox";
 
 const calculateUSDIFF = ({ lastWeight, newWeight, cPrice, express }) => {
 	let formulaParam;
@@ -162,7 +163,7 @@ const UnitedState = () => {
 			)}
 			{!modal && (
 				<FormBox title="united state" onSubmitAction={makeNote}>
-					<div className="flex flex-wrap items-center justify-between gap-5">
+					<WrapBox>
 						{inputs.map(({ state, placeHolder, setState }, key) => {
 							return (
 								<DataInput
@@ -172,7 +173,6 @@ const UnitedState = () => {
 									setState={setState}
 									key={key}
 									focusOnRender={key === 0}
-									containerClass="flex-auto"
 								/>
 							);
 						})}
@@ -184,11 +184,11 @@ const UnitedState = () => {
 								type="checkbox"
 								name="express delievery"
 								defaultChecked
-								className="accent-tertiary h-4 w-4"
+								className="accent-tertiary h-4 w-4 ml-2"
 								onChange={changeExpress}
 							/>
 						</div>
-					</div>
+					</WrapBox>
 					<DifferencePholder difference={difference} />
 					<LittleContainer>
 						{buttons.map(({ name, onClickAction, type }, key) => {
