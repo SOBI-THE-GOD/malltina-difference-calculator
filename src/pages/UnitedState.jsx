@@ -113,7 +113,6 @@ const UnitedState = () => {
 		}
 	};
 	const makeTicket = (e) => {
-		console.log(userName);
 		e.preventDefault();
 		copyToNavigator(
 			`درود بر شما
