@@ -11,7 +11,7 @@ export function FormBox({
 		<form
 			className={`${
 				!resetContainerClass &&
-				"md:w-8/12 w-full rounded-md shadow-xl shadow-tertiary/10 mx-auto mt-10 p-10 flex flex-col gap-y-5 max-w-screen-md"
+				"md:w-8/12 w-full rounded-md shadow-xl shadow-tertiary/10 mx-auto mt-10 p-10 flex flex-col gap-y-5 max-w-screen-md animate-scaleUp"
 			} ${containerClass}`}
 			onSubmit={(e) => onSubmitAction(e)}
 		>

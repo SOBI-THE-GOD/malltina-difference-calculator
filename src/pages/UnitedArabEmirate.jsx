@@ -9,6 +9,8 @@ import { useAlert } from "../hooks/useAlert";
 import { FullModal } from "../components/FullModal";
 import Alert from "../components/Alert";
 import { copyToNavigator } from "../helpers/copyToNavigator";
+import { useMemo } from "react";
+import { useEffect } from "react";
 
 const UnitedArabEmirate = () => {
 	const [lastWeight, setLastWeight] = useState(0);
@@ -18,6 +20,21 @@ const UnitedArabEmirate = () => {
 	const [userName, setUserName] = useState("");
 	const [modal, setModal] = useState(false);
 	const { alert, showAlert, terminateAlert } = useAlert();
+	const reqSign = useMemo(() => Math.floor(Math.random() * 9999999), []);
+	const isInfoReady = useMemo(() => {
+		const depMultiply = lastWeight * newWeight * price;
+		return depMultiply > 0 && newWeight > lastWeight;
+	}, [lastWeight, newWeight, price]);
+	const [pending, setPending] = useState(false);
+	useEffect(() => {
+		if (isInfoReady) {
+			setPending(true);
+			sendReq("req sent!");
+		}
+	}, [isInfoReady, pending, lastWeight, newWeight, price]);
+	const sendReq = (req) => {
+		console.log(req);
+	};
 	const inputs = [
 		{
 			placeHolder: "last weight",
@@ -44,7 +61,7 @@ const UnitedArabEmirate = () => {
 		},
 		{
 			placeHolder: "order ID",
-			setState: setOrderId,
+			stState: setOrderId,
 			state: orderId,
 			focusOnRender: true,
 			type: "String",
@@ -52,7 +69,7 @@ const UnitedArabEmirate = () => {
 	];
 	const makeNote = (e) => {
 		e.preventDefault();
-		if (difference) {
+		if (!pending) {
 			copyToNavigator(
 				`جرم نهایی کالا  »  ${newWeight} گرم
                 مابه تفاوت وزنی به مبلغ ${separatedDiff} تومان پرداخت گردد`,
@@ -78,7 +95,7 @@ const UnitedArabEmirate = () => {
 		setModal(false);
 	};
 	const openPopup = () => {
-		if (difference) {
+		if (!pending) {
 			setModal(true);
 		} else {
 			const alertMessage = "information is not complete!";
@@ -147,6 +164,11 @@ const UnitedArabEmirate = () => {
 									onClickAction={onClickAction}
 									type={type}
 									key={key}
+									btnClass={
+										pending
+											? "active:scale-100 hover:scale-100 text-neutral-400"
+											: ""
+									}
 								>
 									{name}
 								</Btn>

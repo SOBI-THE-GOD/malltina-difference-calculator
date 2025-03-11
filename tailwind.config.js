@@ -21,10 +21,15 @@ export default {
 						transform: "translate(-50%, 0.25rem)",
 					},
 				},
+				scaleUp: {
+					"0%": { scale: "0.98", opacity: "0" },
+					"100%": { scale: "1.0", opacity: "1" },
+				},
 			},
 			animation: {
 				showup: "showup 0.45s ease forwards",
 				disapear: "disapear 0.45s ease",
+				scaleUp: "scaleUp 0.25s ease",
 			},
 			colors: {
 				primary: "#000000",

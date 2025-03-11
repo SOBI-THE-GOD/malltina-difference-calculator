@@ -61,19 +61,17 @@ export function DataInput({
 	}
 	useEffect(() => {
 		const input = inputRef.current;
-		if (state || focusOnRender) {
-			if (state) {
-				if (type === "Number") {
-					input.value = separateNum(state);
-				} else {
-					input.value = state;
-				}
+		(focusOnRender || state) && input.focus();
+		if (state) {
+			if (type === "Number") {
+				input.value = Number(state) ? separateNum(state) : "";
 			} else {
-				input.value = "";
+				input.value = state;
 			}
-			input.focus();
+		} else {
+			input.value = "";
 		}
-	}, [state, focusOnRender, type]);
+	}, [focusOnRender, state, type]);
 	return (
 		<div className={"relative flex-auto basis-60" + ` ${containerClass}`}>
 			<input
