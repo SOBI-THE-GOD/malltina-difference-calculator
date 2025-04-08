@@ -7,11 +7,11 @@ export default {
 				showup: {
 					"0%": {
 						opacity: "0",
-						transform: "translate(-50%, calc(0.25rem - 50%))",
+						scale: "0.9",
 					},
 					"100%": {
 						opacity: "1",
-						transform: "translate(-50%, -50%)",
+						scale: "1",
 					},
 				},
 				disapear: {
@@ -25,11 +25,17 @@ export default {
 					"0%": { scale: "0.98", opacity: "0" },
 					"100%": { scale: "1.0", opacity: "1" },
 				},
+				scaleBounce: {
+					"0%": { scale: "1" },
+					"50%": { scale: "0.4" },
+					"100%": { scale: "1" },
+				},
 			},
 			animation: {
 				showup: "showup 0.45s ease forwards",
 				disapear: "disapear 0.45s ease",
 				scaleUp: "scaleUp 0.25s ease",
+				scaleBounce: "scaleBounce 1.2s ease var(--delay) infinite",
 			},
 			colors: {
 				primary: "#000000",

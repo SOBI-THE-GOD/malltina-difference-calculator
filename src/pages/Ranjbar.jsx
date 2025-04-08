@@ -10,6 +10,7 @@ import { LittleContainer } from "../components/LittleContainer";
 import { DifferencePholder } from "../components/DifferencePholder";
 import { separateNum } from "../helpers/separateNum";
 import { WrapBox } from "../components/WrapBox";
+import Loading from "../components/Loading";
 
 function Ranjbar() {
 	const [weight, setWeight] = new useState(0);
@@ -63,7 +64,7 @@ function Ranjbar() {
 		copyToNavigator(
 			`درود بر شما
 جواد رنجبر عزیز
-سفارش شما با کد  ${orderID} ، به انبار ایران رسیده و وزن گیری شده است . با توجه به اینکه وزن نهایی کالای شما ${weight} گرم می باشد مبلغ ${separatedDiff} تومان مابه التفاوت وزنی به سفارش شما تعلق گرفته است .
+سفارش شما با کد  ${orderID || "---"} ، به انبار ایران رسیده و وزن گیری شده است . با توجه به اینکه وزن نهایی کالای شما ${weight} گرم می باشد مبلغ ${separatedDiff} تومان مابه التفاوت وزنی به سفارش شما تعلق گرفته است .
 لطفا پس از پرداخت اطلاع دهید تا کالا خدمتتان ارسال گردد.
 با سپاس`,
 			"ticket",
@@ -109,7 +110,9 @@ function Ranjbar() {
 						})}
 					</WrapBox>
 
-					<DifferencePholder difference={difference} />
+					<DifferencePholder difference={difference}>
+						<Loading />
+					</DifferencePholder>
 					<LittleContainer>
 						{buttonNames.map(
 							({ name, onClickAction, type }, key) => {

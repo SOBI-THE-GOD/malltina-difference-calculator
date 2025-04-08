@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Ranjbar from "../pages/Ranjbar";
-import UnitedArabEmirate from "../pages/UnitedArabEmirate";
 import UnitedState from "../pages/UnitedState";
-import China from "../pages/China";
+import AsiaPage from "../pages/AsiaPage";
 import Home from "../pages/Home";
 
 const routes = createBrowserRouter([
@@ -25,11 +24,25 @@ const routes = createBrowserRouter([
 			},
 			{
 				path: "uae",
-				element: <UnitedArabEmirate />,
+				element: (
+					<AsiaPage
+						title="united arab emirate"
+						country="uae"
+						currency="AED"
+						key="uae"
+					/>
+				),
 			},
 			{
 				path: "china",
-				element: <China />,
+				element: (
+					<AsiaPage
+						title="republic of china"
+						country="china"
+						currency="USD"
+						key="china"
+					/>
+				),
 			},
 			{
 				path: "*",

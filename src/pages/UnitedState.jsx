@@ -10,6 +10,7 @@ import { copyToNavigator } from "../helpers/copyToNavigator";
 import { FullModal } from "../components/FullModal";
 import { separateNum } from "../helpers/separateNum";
 import { WrapBox } from "../components/WrapBox";
+import Loading from "../components/Loading";
 
 const calculateUSDIFF = ({ lastWeight, newWeight, cPrice, express }) => {
 	let formulaParam;
@@ -117,7 +118,7 @@ const UnitedState = () => {
 		copyToNavigator(
 			`درود بر شما
     ${userName || "مشتری"} عزیز
-    سفارش شما با کد  ${orderID} ، به انبار ایران رسیده و وزن گیری شده است . با توجه به اینکه وزن نهایی کالای شما ${newWeight} گرم می باشد مبلغ ${separatedDiff} تومان مابه التفاوت وزنی به سفارش شما تعلق گرفته است .
+    سفارش شما با کد  ${orderID || "---"} ، به انبار ایران رسیده و وزن گیری شده است . با توجه به اینکه وزن نهایی کالای شما ${newWeight} گرم می باشد مبلغ ${separatedDiff} تومان مابه التفاوت وزنی به سفارش شما تعلق گرفته است .
     لطفا پس از پرداخت اطلاع دهید تا کالا خدمتتان ارسال گردد.
     با سپاس`,
 			"ticket",
@@ -188,7 +189,9 @@ const UnitedState = () => {
 							/>
 						</div>
 					</WrapBox>
-					<DifferencePholder difference={difference} />
+					<DifferencePholder difference={difference}>
+						<Loading />
+					</DifferencePholder>
 					<LittleContainer>
 						{buttons.map(({ name, onClickAction, type }, key) => {
 							return (

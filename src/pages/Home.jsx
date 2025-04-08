@@ -1,8 +1,19 @@
+import { useRef } from "react";
 import AuroraBg from "../components/AuroraBg";
 import BluryText from "../components/BluryText";
+import { modifyParentClass } from "../helpers/modifyParentClass";
+import { useEffect } from "react";
 const Home = () => {
+	const container = useRef(null);
+	useEffect(() => {
+		const element = container.current;
+		modifyParentClass(element, "rm", ["pb-16"]);
+	}, []);
 	return (
-		<div className="h-[calc(100dvh-3rem)] flex items-center justify-center relative isolate">
+		<div
+			className="h-[calc(100dvh-3rem)] flex items-center justify-center relative isolate"
+			ref={container}
+		>
 			<BluryText
 				text="Difference Calculator"
 				direction="bottom"
