@@ -84,54 +84,62 @@ Target Audience:
 ## Project Structure
 
 malltina-difference-calculator/
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── README.md
-├── tailwind.config.js
-├── vercel.json
-├── vite.config.js
-└── src/
-├── assets/
-│   ├── clip-logo.svg
-│   ├── DifferenceCalculator.png
-│   ├── down-arrow.svg
-│   └── up-arrow.svg
-├── components/
-│   ├── Alert.jsx
-│   ├── AuroraBg.jsx
-│   ├── BluryText.jsx
-│   ├── Btn.jsx
-│   ├── DataInput.jsx
-│   ├── DifferencePholder.jsx
-│   ├── FormBox.jsx
-│   ├── FullModal.jsx
-│   ├── LittleContainer.jsx
-│   ├── Loading.jsx
-│   ├── Nav.jsx
-│   └── WrapBox.jsx
-├── helpers/
-│   ├── asiaAPIReq.js
-│   ├── convertToPureNum.js
-│   ├── copyToNavigator.js
-│   ├── modifyParentClass.js
-│   └── separateNum.js
-├── hooks/
-│   └── useAlert.js
-├── layouts/
-│   └── MainLayout.jsx
-├── pages/
-│   ├── AsiaPage.jsx
-│   ├── Home.jsx
-│   ├── Ranjbar.jsx
-│   └── UnitedState.jsx
-├── routes/
-│   └── routes.jsx
-├── index.css
-└── main.jsx
+│   .gitignore
+│   eslint.config.js
+│   index.html
+│   package-lock.json
+│   package.json
+│   postcss.config.js
+│   README.md
+│   tailwind.config.js
+│   vercel.json
+│   vite.config.js
+│
+└───src
+    │   index.css
+    │   main.jsx
+    │
+    ├───assets
+    │       clip-logo.svg
+    │       DifferenceCalculator.png
+    │       down-arrow.svg
+    │       up-arrow.svg
+    │
+    ├───components
+    │       Alert.jsx
+    │       AuroraBg.jsx
+    │       BluryText.jsx
+    │       Btn.jsx
+    │       DataInput.jsx
+    │       DifferencePholder.jsx
+    │       FormBox.jsx
+    │       FullModal.jsx
+    │       LittleContainer.jsx
+    │       Loading.jsx
+    │       Nav.jsx
+    │       WrapBox.jsx
+    │
+    ├───helpers
+    │       asiaAPIReq.js
+    │       convertToPureNum.js
+    │       copyToNavigator.js
+    │       modifyParentClass.js
+    │       separateNum.js
+    │
+    ├───hooks
+    │       useAlert.js
+    │
+    ├───layouts
+    │       MainLayout.jsx
+    │
+    ├───pages
+    │       AsiaPage.jsx
+    │       Home.jsx
+    │       Ranjbar.jsx
+    │       UnitedState.jsx
+    │
+    └───routes
+            routes.jsx
 
 
 -   **`src/components/`:** Contains reusable React components.
@@ -148,40 +156,12 @@ malltina-difference-calculator/
 -   **`tailwind.config.js`:** Tailwind CSS configuration.
 -   **`vite.config.js`:** Vite configuration.
 
-## Contributing
+## Demo
 
-1.  **Fork the Repository:**
-    -   Fork the repository to your GitHub account.
-
-2.  **Create a Branch:**
-    -   Create a new branch for your feature or bug fix.
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
-
-3.  **Make Changes:**
-    -   Make your changes and commit them.
-
-4.  **Submit a Pull Request:**
-    -   Submit a pull request to the `main` branch of the original repository.
-
-5.  **Code Standards:**
-    -   Follow the existing code style and conventions.
-    -   Write clean, readable, and maintainable code.
-    -   Add comments where necessary.
-    -   Ensure your code passes ESLint checks (`npm run lint`).
-
-## License
-
-This project does not have a license, if you would like to add a license please add it to the README.md and to a LICENSE file in the root of the project.
-
-## Screenshots/Demo
-
--   (Add screenshots or links to live demo versions here)
+-   (https://malltina-difference-calculator.vercel.app/)
 
 ## Additional Notes
 
 -   The `AsiaPage` component relies on an external API and may require a CORS bypass extension for proper functionality.
 -   Ensure all dependencies are up-to-date.
--   Test thoroughly before submitting pull requests.
--   The `useAlert.js` file handles the alert system, and the `asiaAPIReq.js` file handles the api requests 
+-   The `useAlert.js` file handles the alert system, and the `asiaAPIReq.js` file handles the Asia section api requests 
