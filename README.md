@@ -2,130 +2,186 @@
 
 ## Description
 
-The **Malltina Difference Calculator** is a web application designed to calculate and compare the weight and price differences for various items. It supports multiple regions, including the United States, China, UAE, and others. The app allows users to input weight and price details, and then it calculates the difference in prices based on the weight variations. Additionally, users can generate notes or tickets related to the difference, which can be copied to their clipboard for further use.
+The Malltina Difference Calculator is a web application designed to calculate the difference in weight-based charges for shipping orders. It provides tools to generate notes and tickets for customers, detailing the weight differences and associated costs. This application caters to logistics and e-commerce businesses that need to manage and communicate weight discrepancies in their shipping processes.
 
-This app is designed to help businesses and individuals who need to calculate price differences when shipping or transporting goods based on weight variations.
+Key Features:
+
+-   **Weight Difference Calculation:** Accurately calculates weight-based charge differences.
+-   **Note Generation:** Creates concise notes for customers regarding weight discrepancies.
+-   **Ticket Generation:** Generates detailed tickets for customers, including order ID, weight difference, and payment information.
+-   **User-Friendly Interface:** Provides an intuitive and easy-to-use interface.
+-   **Dynamic Country-Specific Calculations:** Handles different calculation logic based on shipping origin (e.g., United States, Asia).
+-   **Alert System:** Provides user feedback via an alert system.
+-   **Loading Indicators:** Displays loading animations during API requests.
+-   **Copy to Clipboard:** Allows users to copy generated notes and tickets directly to the clipboard.
+-   **Cors Bypass Extension Support:** Uses a cors bypass extension to make requests to the api.
+
+Target Audience:
+
+-   Logistics companies
+-   E-commerce businesses
+-   Shipping and freight forwarders
+-   Customer service representatives
 
 ## Installation Instructions
 
-### Prerequisites
+1.  **Clone the Repository:**
+    ```bash
+    git clone [Your Repository URL]
+    cd malltina-difference-calculator
+    ```
 
-Ensure you have the following installed on your local machine:
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-- **Node.js** (version 16 or higher)
-- **npm** (Node Package Manager, installed with Node.js)
+3.  **Start the Development Server:**
+    ```bash
+    npm run dev
+    ```
 
-### Setup
+    This command will start the Vite development server, and the app will be accessible at `http://localhost:5173/` (or a similar address).
 
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/SOBI-THE-GOD/malltina-difference-calculator.git
-   cd malltina-difference-calculator
-Install the dependencies using npm:
+4.  **Build for Production (Optional):**
+    ```bash
+    npm run build
+    ```
 
-bash
-Copy
-npm install
-To start the development server, run:
+    This command will create a `dist` folder containing the production-ready build of the application.
 
-bash
-Copy
-npm run dev
-Open your browser and visit http://localhost:3000 to view the application.
+## Usage
 
-Running the App in Production Mode
-To build the project for production and preview it:
+1.  **Open the App:**
+    -   Navigate to `http://localhost:5173/` (or the appropriate URL) in your web browser.
 
-Build the project:
+2.  **Select a Calculation Page:**
+    -   Use the navigation bar to select the appropriate calculation page (e.g., "Ranjbar," "United State," "Asia").
 
-bash
-Copy
-npm run build
-Preview the built app:
+3.  **Enter Weight and Price Information:**
+    -   Fill in the required fields (e.g., last weight, new weight, currency price).
 
-bash
-Copy
-npm run preview
-Usage
-Once set up and running, you can use the app to calculate price differences for various regions. Here's how:
+4.  **Generate Notes or Tickets:**
+    -   Click the "note" or "ticket" buttons to generate the corresponding information.
+    -   The generated text will be copied to your clipboard.
 
-Select a Region: Choose a region (e.g., United States, UAE, China) from the navigation bar.
+5.  **View Alerts:**
+    -   Alerts will appear at the bottom of the screen to provide feedback on actions (e.g., successful copy, errors).
 
-Input Data: Enter the last weight, new weight, and price information for the item.
+6. **Asia Page Cors Usage:**
+    - To use the asia page, you must install a cors bypass extension in your browser.
 
-Calculate Difference: The app will automatically calculate the price difference based on the weights and prices provided.
+## Technology Stack
 
-Generate Notes/Tickets: Once the calculation is done, you can generate a note or a ticket. These can be copied to your clipboard for further use.
+-   **React:** JavaScript library for building user interfaces.
+-   **React Router DOM:** For client-side routing.
+-   **Tailwind CSS:** For utility-first CSS styling.
+-   **Vite:** For fast development and build processes.
+-   **OGL:** For webGL animations on the Home page.
+-   **@react-spring/web:** For web animations.
+-   **@vercel/analytics:** For web analytics.
 
-Technology Stack
-React: A JavaScript library for building user interfaces.
+## Project Structure
 
-Vite: A fast build tool and development server.
+malltina-difference-calculator/
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── vercel.json
+├── vite.config.js
+└── src/
+├── assets/
+│   ├── clip-logo.svg
+│   ├── DifferenceCalculator.png
+│   ├── down-arrow.svg
+│   └── up-arrow.svg
+├── components/
+│   ├── Alert.jsx
+│   ├── AuroraBg.jsx
+│   ├── BluryText.jsx
+│   ├── Btn.jsx
+│   ├── DataInput.jsx
+│   ├── DifferencePholder.jsx
+│   ├── FormBox.jsx
+│   ├── FullModal.jsx
+│   ├── LittleContainer.jsx
+│   ├── Loading.jsx
+│   ├── Nav.jsx
+│   └── WrapBox.jsx
+├── helpers/
+│   ├── asiaAPIReq.js
+│   ├── convertToPureNum.js
+│   ├── copyToNavigator.js
+│   ├── modifyParentClass.js
+│   └── separateNum.js
+├── hooks/
+│   └── useAlert.js
+├── layouts/
+│   └── MainLayout.jsx
+├── pages/
+│   ├── AsiaPage.jsx
+│   ├── Home.jsx
+│   ├── Ranjbar.jsx
+│   └── UnitedState.jsx
+├── routes/
+│   └── routes.jsx
+├── index.css
+└── main.jsx
 
-Tailwind CSS: A utility-first CSS framework for styling.
 
-React Router: For routing and navigation within the app.
+-   **`src/components/`:** Contains reusable React components.
+-   **`src/helpers/`:** Contains utility functions.
+-   **`src/hooks/`:** Contains custom React hooks.
+-   **`src/layouts/`:** Contains layout components.
+-   **`src/pages/`:** Contains page-level components.
+-   **`src/routes/`:** Contains routing configuration.
+-   **`src/assets/`:** Contains static assets (images, SVGs).
+-   **`src/index.css`:** Contains global CSS styles.
+-   **`src/main.jsx`:** Entry point of the React application.
+-   **`index.html`:** Main HTML file.
+-   **`package.json`:** Contains project dependencies and scripts.
+-   **`tailwind.config.js`:** Tailwind CSS configuration.
+-   **`vite.config.js`:** Vite configuration.
 
-@react-spring/web: For animations.
+## Contributing
 
-OGL: WebGL rendering framework for animations and visual effects.
+1.  **Fork the Repository:**
+    -   Fork the repository to your GitHub account.
 
-Vercel Analytics: For tracking app analytics.
+2.  **Create a Branch:**
+    -   Create a new branch for your feature or bug fix.
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
 
-Contributing
-We welcome contributions to the project! Here are some ways you can help:
+3.  **Make Changes:**
+    -   Make your changes and commit them.
 
-Report bugs or request new features.
+4.  **Submit a Pull Request:**
+    -   Submit a pull request to the `main` branch of the original repository.
 
-Submit a pull request with bug fixes, feature additions, or improvements.
+5.  **Code Standards:**
+    -   Follow the existing code style and conventions.
+    -   Write clean, readable, and maintainable code.
+    -   Add comments where necessary.
+    -   Ensure your code passes ESLint checks (`npm run lint`).
 
-Write documentation and tutorials for new users.
+## License
 
-Code Standards
-Write clean, maintainable code.
+This project does not have a license, if you would like to add a license please add it to the README.md and to a LICENSE file in the root of the project.
 
-Use ESLint for JavaScript linting to ensure code quality.
+## Screenshots/Demo
 
-Follow the Prettier code formatting rules to maintain consistency in code style.
+-   (Add screenshots or links to live demo versions here)
 
-Pull Request Guidelines
-Fork the repository and create your branch.
+## Additional Notes
 
-Write tests for new features or bug fixes.
-
-Ensure all tests pass before submitting the pull request.
-
-Make sure to update documentation where applicable.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-Project Structure
-Here’s an overview of the project structure:
-
-bash
-Copy
-.
-├── .gitignore                # Specifies files and directories to ignore
-├── eslint.config.js           # ESLint configuration
-├── index.html                 # HTML template
-├── package.json               # Project dependencies and scripts
-├── tailwind.config.js         # Tailwind CSS configuration
-├── vite.config.js             # Vite configuration
-├── src/                       # Source code directory
-│   ├── assets/                # Static assets (images, icons)
-│   ├── components/            # React components (e.g., buttons, forms)
-│   ├── helpers/               # Utility functions
-│   ├── hooks/                 # Custom hooks
-│   ├── layouts/               # Layout components (e.g., main layout)
-│   ├── pages/                 # Page components (e.g., home, country pages)
-│   └── routes/                # Routing configuration
-└── README.md                  # Project documentation
-Screenshots/Demo
-
-For a live demo, visit: [Insert live demo link here]
-
-Additional Notes
-CORS Issue: The app includes functionality to bypass CORS issues using a browser extension. Ensure that the extension is installed for the app to work correctly.
-
-Supported Regions: The app currently supports the United States, UAE, China, and other regions. More regions can be added upon request.
+-   The `AsiaPage` component relies on an external API and may require a CORS bypass extension for proper functionality.
+-   Ensure all dependencies are up-to-date.
+-   Test thoroughly before submitting pull requests.
+-   The `useAlert.js` file handles the alert system, and the `asiaAPIReq.js` file handles the api requests 
