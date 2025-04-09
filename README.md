@@ -1,167 +1,154 @@
-# Malltina Difference Calculator
+# Malltina Difference Calculator 🧮
 
-## Description
+[![React](https://img.shields.io/badge/React-18.3-blue?logo=react)](https://reactjs.org/) [![Vite](https://img.shields.io/badge/Vite-6.0-yellowgreen?logo=vite)](https://vitejs.dev/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/) [![React Router](https://img.shields.io/badge/React_Router-7.1-CA4245?logo=react-router)](https://reactrouter.com/) [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com/)
 
-The Malltina Difference Calculator is a web application designed to calculate the difference in weight-based charges for shipping orders. It provides tools to generate notes and tickets for customers, detailing the weight differences and associated costs. This application caters to logistics and e-commerce businesses that need to manage and communicate weight discrepancies in their shipping processes.
+A sleek and efficient web application designed to calculate shipping cost differences for Malltina based on updated package weights across various regions.
 
-Key Features:
+---
 
--   **Weight Difference Calculation:** Accurately calculates weight-based charge differences.
--   **Note Generation:** Creates concise notes for customers regarding weight discrepancies.
--   **Ticket Generation:** Generates detailed tickets for customers, including order ID, weight difference, and payment information.
--   **User-Friendly Interface:** Provides an intuitive and easy-to-use interface.
--   **Dynamic Country-Specific Calculations:** Handles different calculation logic based on shipping origin (e.g., United States, Asia).
--   **Alert System:** Provides user feedback via an alert system.
--   **Loading Indicators:** Displays loading animations during API requests.
--   **Copy to Clipboard:** Allows users to copy generated notes and tickets directly to the clipboard.
--   **Cors Bypass Extension Support:** Uses a cors bypass extension to make requests to the api.
+## 📝 Description
 
-Target Audience:
+The **Malltina Difference Calculator** is a specialized tool built to streamline the process of calculating additional shipping costs incurred due to discrepancies between estimated and final package weights. It caters specifically to Malltina's operational needs, providing distinct calculation logic for shipments originating from:
 
--   Logistics companies
--   E-commerce businesses
--   Shipping and freight forwarders
--   Customer service representatives
+* 🇺🇸 United States
+* 🇦🇪 United Arab Emirates (UAE)
+* 🇨🇳 China
+* 🇮🇷 Ranjbar (Specific internal calculation)
 
-## Installation Instructions
+The application features a clean, modern user interface built with React and Tailwind CSS, offering a seamless user experience. Key functionalities include:
 
-1.  **Clone the Repository:**
+* Region-specific calculation forms.
+* Real-time difference calculation display.
+* Convenient "Copy Note" and "Copy Ticket" buttons to generate pre-formatted messages for customer communication or internal notes.
+* Interactive UI elements and animations for enhanced usability.
+* Direct API integration for Asia calculations (requires a specific browser setup, see below).
+
+This tool is primarily intended for Malltina staff or agents responsible for managing orders and communicating cost adjustments.
+
+---
+
+## 🚀 Live Demo
+
+Experience the application live:
+
+➡️ **[https://malltina-difference-calculator.vercel.app/](https://malltina-difference-calculator.vercel.app/)** ⬅️
+
+*Note: Asia calculations (UAE/China) require a browser extension for CORS bypass.*
+
+---
+
+## 🔧 Installation Instructions
+
+To set up the project locally for development or testing, follow these steps:
+
+**Prerequisites:**
+
+* [Node.js](https://nodejs.org/) (Latest LTS version recommended)
+* [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+* **⚠️ Browser Extension for CORS Bypass (Crucial for Asia Calculations):** The UAE and China calculators fetch data directly from the `api.malltina.com` endpoint. Due to browser security restrictions (CORS), requests from `localhost` (or the Vercel domain) to this API are blocked by default. To enable these calculations, you **must** use a browser extension that can bypass CORS policies *specifically for requests made by this application*. The application uses `window.postMessage` to communicate with such an extension. Without a functioning extension, the UAE and China pages will display a message prompting installation.
+
+**Setup Steps:**
+
+1.  **Clone the repository:**
     ```bash
-    git clone [Your Repository URL]
+    git clone <your-repository-url>
     cd malltina-difference-calculator
     ```
 
-2.  **Install Dependencies:**
+2.  **Install dependencies:**
     ```bash
     npm install
+    # or
+    yarn install
     ```
 
-3.  **Start the Development Server:**
+3.  **Install and configure a CORS Bypass Extension:**
+    * Find and install a suitable browser extension (e.g., "Allow CORS: Access-Control-Allow-Origin" or similar).
+    * Ensure the extension is configured to allow requests originating from `http://localhost:<port>` (your local dev environment) or the Vercel deployment URL to `https://api.malltina.com`.
+    * *This project specifically looks for an element with the ID `__cors_extension_marker` injected by the extension, and communicates via `window.postMessage` - ensure your chosen extension supports or can be adapted for this interaction pattern if necessary.*
+
+4.  **Run the development server:**
     ```bash
     npm run dev
+    # or
+    yarn dev
     ```
+    The application should now be running, typically at `http://localhost:5173` (Vite's default).
 
-    This command will start the Vite development server, and the app will be accessible at `http://localhost:5173/` (or a similar address).
+---
 
-4.  **Build for Production (Optional):**
-    ```bash
-    npm run build
-    ```
+## 💻 Usage
 
-    This command will create a `dist` folder containing the production-ready build of the application.
+1.  **Start the application:** Run `npm run dev` after installation.
+2.  **Navigate:** Use the navigation bar at the top to select the desired region/calculation type (Home, Ranjbar, US, UAE, China).
+3.  **Enter Data:** Fill in the required input fields for the selected calculator:
+    * **Ranjbar:** Final Weight (grams), Currency Price.
+    * **United States:** Last Weight (grams), New Weight (grams), Currency Price. Toggle the "Express Delivery" checkbox if applicable.
+    * **UAE / China:** Last Weight (grams), New Weight (grams), Price (in specified currency - AED for UAE, USD for China). *Ensure your CORS bypass extension is active.*
+4.  **View Result:** The calculated cost difference (in Toman) will appear automatically below the inputs once sufficient data is provided. A loading indicator shows during API requests (Asia).
+5.  **Generate Outputs:**
+    * Click the **"Note"** button to copy a concise summary of the final weight and cost difference to your clipboard.
+    * Click the **"Ticket"** button. A modal will appear asking for User Name and Order ID (optional). After entering the details and clicking "Enter", a pre-formatted message suitable for a customer support ticket will be copied to your clipboard.
+6.  **Alerts:** Informational messages or error alerts (e.g., "Note copied!", "Clipboard access required!") appear briefly at the bottom of the screen.
 
-## Usage
+---
 
-1.  **Open the App:**
-    -   Navigate to `http://localhost:5173/` (or the appropriate URL) in your web browser.
+## 🛠️ Technology Stack
 
-2.  **Select a Calculation Page:**
-    -   Use the navigation bar to select the appropriate calculation page (e.g., "Ranjbar," "United State," "Asia").
+This project leverages a modern frontend stack:
 
-3.  **Enter Weight and Price Information:**
-    -   Fill in the required fields (e.g., last weight, new weight, currency price).
+* **Core Framework:** [React](https://reactjs.org/) `18.3` ⚛️
+* **Build Tool:** [Vite](https://vitejs.dev/) `6.0` ⚡
+* **Language:** JavaScript (ES6+)
+* **Routing:** [React Router DOM](https://reactrouter.com/) `7.1` 🧭
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/) `3.4` 🎨 & [PostCSS](https://postcss.org/)
+* **State Management:** React Hooks (`useState`, `useMemo`, `useEffect`, Custom Hooks)
+* **Animations:** [React Spring](https://www.react-spring.dev/), Custom Tailwind Animations, [OGL](https://github.com/oframe/ogl) (for Aurora Background) ✨
+* **API Interaction:** Native `Workspace` via `window.postMessage` (for CORS bypass with extension) ↔️
+* **Linting:** [ESLint](https://eslint.org/) `9.17` 🧹
+* **Analytics:** [Vercel Analytics](https://vercel.com/analytics) 📊
+* **Deployment:** [Vercel](https://vercel.com/) ▲
 
-4.  **Generate Notes or Tickets:**
-    -   Click the "note" or "ticket" buttons to generate the corresponding information.
-    -   The generated text will be copied to your clipboard.
+---
 
-5.  **View Alerts:**
-    -   Alerts will appear at the bottom of the screen to provide feedback on actions (e.g., successful copy, errors).
+## 📂 Project Structure
 
-6. **Asia Page Cors Usage:**
-    - To use the asia page, you must install a cors bypass extension in your browser.
+The project follows a standard Vite + React structure, organized for clarity and maintainability:
 
-## Technology Stack
-
--   **React:** JavaScript library for building user interfaces.
--   **React Router DOM:** For client-side routing.
--   **Tailwind CSS:** For utility-first CSS styling.
--   **Vite:** For fast development and build processes.
--   **OGL:** For webGL animations on the Home page.
--   **@react-spring/web:** For web animations.
--   **@vercel/analytics:** For web analytics.
-
-## Project Structure
-
-malltina-difference-calculator/
-│   .gitignore
-│   eslint.config.js
-│   index.html
-│   package-lock.json
-│   package.json
-│   postcss.config.js
-│   README.md
-│   tailwind.config.js
-│   vercel.json
-│   vite.config.js
-│
-└───src
-    │   index.css
-    │   main.jsx
-    │
-    ├───assets
-    │       clip-logo.svg
-    │       DifferenceCalculator.png
-    │       down-arrow.svg
-    │       up-arrow.svg
-    │
-    ├───components
-    │       Alert.jsx
-    │       AuroraBg.jsx
-    │       BluryText.jsx
-    │       Btn.jsx
-    │       DataInput.jsx
-    │       DifferencePholder.jsx
-    │       FormBox.jsx
-    │       FullModal.jsx
-    │       LittleContainer.jsx
-    │       Loading.jsx
-    │       Nav.jsx
-    │       WrapBox.jsx
-    │
-    ├───helpers
-    │       asiaAPIReq.js
-    │       convertToPureNum.js
-    │       copyToNavigator.js
-    │       modifyParentClass.js
-    │       separateNum.js
-    │
-    ├───hooks
-    │       useAlert.js
-    │
-    ├───layouts
-    │       MainLayout.jsx
-    │
-    ├───pages
-    │       AsiaPage.jsx
-    │       Home.jsx
-    │       Ranjbar.jsx
-    │       UnitedState.jsx
-    │
-    └───routes
-            routes.jsx
+. <br />
+├── public/                  # Static assets (if any) <br />
+├── src/ <br />
+│   ├── assets/              # Images, icons, svgs <br />
+│   ├── components/          # Reusable React components (Buttons, Modals, Inputs, etc.) <br />
+│   ├── helpers/             # Utility functions (API request logic, formatting, DOM utils) <br />
+│   ├── hooks/               # Custom React Hooks (e.g., useAlert) <br />
+│   ├── layouts/             # Layout components (e.g., MainLayout with Nav) <br />
+│   ├── pages/               # Page-level components corresponding to routes <br />
+│   ├── routes/              # Routing configuration (routes.jsx) <br />
+│   ├── index.css            # Global styles & Tailwind imports <br />
+│   └── main.jsx             # Application entry point <br />
+├── .gitignore               # Git ignore rules <br />
+├── eslint.config.js         # ESLint configuration <br />
+├── index.html               # Main HTML template <br />
+├── package.json             # Project metadata and dependencies <br />
+├── postcss.config.js        # PostCSS configuration <br />
+├── tailwind.config.js       # Tailwind CSS configuration <br />
+├── vercel.json              # Vercel deployment configuration (if specific rules needed) <br />
+└── vite.config.js           # Vite build configuration <br />
 
 
--   **`src/components/`:** Contains reusable React components.
--   **`src/helpers/`:** Contains utility functions.
--   **`src/hooks/`:** Contains custom React hooks.
--   **`src/layouts/`:** Contains layout components.
--   **`src/pages/`:** Contains page-level components.
--   **`src/routes/`:** Contains routing configuration.
--   **`src/assets/`:** Contains static assets (images, SVGs).
--   **`src/index.css`:** Contains global CSS styles.
--   **`src/main.jsx`:** Entry point of the React application.
--   **`index.html`:** Main HTML file.
--   **`package.json`:** Contains project dependencies and scripts.
--   **`tailwind.config.js`:** Tailwind CSS configuration.
--   **`vite.config.js`:** Vite configuration.
+---
 
-## Demo
+## 💡 Additional Notes
 
--   (https://malltina-difference-calculator.vercel.app/)
+* **CORS Dependency:** The functionality of the UAE and China calculators is **strictly dependent** on a properly configured CORS bypass browser extension. The `AsiaPage.jsx` component contains the logic (`useEffect` hook) to detect the extension's presence and communicate with it. If the extension is not detected or fails, API calls will not succeed.
+* **Calculation Logic:**
+    * `Ranjbar.jsx` and `UnitedState.jsx` contain client-side JavaScript logic for their respective calculations.
+    * `AsiaPage.jsx` orchestrates API calls to the external Malltina API (`https://api.malltina.com/api/v1/asia-shop/compute-cost`) via the browser extension to fetch cost data for different weights and calculates the difference. See `src/helpers/asiaAPIReq.js`.
+* **UI Components:** The application emphasizes reusable components found in `src/components/`. Key interactive elements include `DataInput.jsx`, `Btn.jsx`, `FullModal.jsx`, and visual components like `AuroraBg.jsx` (using OGL) and `BluryText.jsx`.
+* **Styling:** Tailwind CSS is used extensively for styling, with custom themes, colors (`primary`, `secondary`, `tertiary`), and animations defined in `tailwind.config.js`. Global styles and overrides are in `src/index.css`.
+* **Code Quality:** ESLint is configured (`eslint.config.js`) to maintain code consistency and quality. Run `npm run lint` to check the code.
 
-## Additional Notes
+---
 
--   The `AsiaPage` component relies on an external API and may require a CORS bypass extension for proper functionality.
--   Ensure all dependencies are up-to-date.
--   The `useAlert.js` file handles the alert system, and the `asiaAPIReq.js` file handles the Asia section api requests 
+This project demonstrates proficiency in React, modern JavaScript, API integration (with 
