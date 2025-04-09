@@ -152,4 +152,4 @@ The project follows a standard Vite + React structure, organized for clarity and
 
 ---
 
-This project demonstrates proficiency in React, modern JavaScript, API integration (with 
+This project demonstrates proficiency in React, modern JavaScript, API integration (with workarounds for constraints like CORS), state management, component-based architecture, and styling with Tailwind CSS.
