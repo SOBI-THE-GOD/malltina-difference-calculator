@@ -115,27 +115,28 @@ This project leverages a modern frontend stack:
 
 The project follows a standard Vite + React structure, organized for clarity and maintainability:
 
-. <br />
-├── public/                  # Static assets (if any) <br />
-├── src/ <br />
-│   ├── assets/              # Images, icons, svgs <br />
-│   ├── components/          # Reusable React components (Buttons, Modals, Inputs, etc.) <br />
-│   ├── helpers/             # Utility functions (API request logic, formatting, DOM utils) <br />
-│   ├── hooks/               # Custom React Hooks (e.g., useAlert) <br />
-│   ├── layouts/             # Layout components (e.g., MainLayout with Nav) <br />
-│   ├── pages/               # Page-level components corresponding to routes <br />
-│   ├── routes/              # Routing configuration (routes.jsx) <br />
-│   ├── index.css            # Global styles & Tailwind imports <br />
-│   └── main.jsx             # Application entry point <br />
-├── .gitignore               # Git ignore rules <br />
-├── eslint.config.js         # ESLint configuration <br />
-├── index.html               # Main HTML template <br />
-├── package.json             # Project metadata and dependencies <br />
-├── postcss.config.js        # PostCSS configuration <br />
-├── tailwind.config.js       # Tailwind CSS configuration <br />
-├── vercel.json              # Vercel deployment configuration (if specific rules needed) <br />
-└── vite.config.js           # Vite build configuration <br />
-
+<pre>
+.
+├── public/                  # Static assets (if any)
+├── src/
+│   ├── assets/              # Images, icons, svgs
+│   ├── components/          # Reusable React components (Buttons, Modals, Inputs, etc.)
+│   ├── helpers/             # Utility functions (API request logic, formatting, DOM utils)
+│   ├── hooks/               # Custom React Hooks (e.g., useAlert)
+│   ├── layouts/             # Layout components (e.g., MainLayout with Nav)
+│   ├── pages/               # Page-level components corresponding to routes
+│   ├── routes/              # Routing configuration (routes.jsx)
+│   ├── index.css            # Global styles & Tailwind imports
+│   └── main.jsx             # Application entry point
+├── .gitignore               # Git ignore rules
+├── eslint.config.js         # ESLint configuration
+├── index.html               # Main HTML template
+├── package.json             # Project metadata and dependencies
+├── postcss.config.js        # PostCSS configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+├── vercel.json              # Vercel deployment configuration (if specific rules needed)
+└── vite.config.js           # Vite build configuration
+</pre>
 
 ---
 
