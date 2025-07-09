@@ -13,6 +13,7 @@ The **Malltina Difference Calculator** is a specialized tool built to streamline
 * 🇺🇸 United States
 * 🇦🇪 United Arab Emirates (UAE)
 * 🇨🇳 China
+* 🇹🇷 Turkey
 * 🇮🇷 Ranjbar (Specific internal calculation)
 
 The application features a clean, modern user interface built with React and Tailwind CSS, offering a seamless user experience. Key functionalities include:
@@ -117,7 +118,7 @@ The project follows a standard Vite + React structure, organized for clarity and
 
 <pre>
 .
-├── public/                  # Static assets (if any)
+├── public/                  # Static assets ( Icon, SVG, etc )
 ├── src/
 │   ├── assets/              # Images, icons, svgs
 │   ├── components/          # Reusable React components (Buttons, Modals, Inputs, etc.)
@@ -134,7 +135,7 @@ The project follows a standard Vite + React structure, organized for clarity and
 ├── package.json             # Project metadata and dependencies
 ├── postcss.config.js        # PostCSS configuration
 ├── tailwind.config.js       # Tailwind CSS configuration
-├── vercel.json              # Vercel deployment configuration (if specific rules needed)
+├── vercel.json              # Vercel deployment configuration
 └── vite.config.js           # Vite build configuration
 </pre>
 
