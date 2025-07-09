@@ -34,7 +34,7 @@ Experience the application live:
 
 ➡️ **[https://malltina-difference-calculator.vercel.app/](https://malltina-difference-calculator.vercel.app/)** ⬅️
 
-*Note: Asia calculations (UAE/China) require a browser extension for CORS bypass.*
+*Note: Asia calculations (UAE/China/Turkey) require a browser extension for CORS bypass.*
 
 ---
 
@@ -46,7 +46,7 @@ To set up the project locally for development or testing, follow these steps:
 
 * [Node.js](https://nodejs.org/) (Latest LTS version recommended)
 * [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-* **⚠️ Browser Extension for CORS Bypass (Crucial for Asia Calculations):** The UAE and China calculators fetch data directly from the `api.malltina.com` endpoint. Due to browser security restrictions (CORS), requests from `localhost` (or the Vercel domain) to this API are blocked by default. To enable these calculations, you **must** use a browser extension that can bypass CORS policies *specifically for requests made by this application*. The application uses `window.postMessage` to communicate with such an extension. Without a functioning extension, the UAE and China pages will display a message prompting installation.
+* **⚠️ Browser Extension for CORS Bypass (Crucial for Asia Calculations):** the Asian countries (UAE/China/Turkey) calculators fetch data directly from the `api.malltina.com` endpoint. Due to browser security restrictions (CORS), requests from `localhost` (or the Vercel domain) to this API are blocked by default. To enable these calculations, you **must** use a browser extension that can bypass CORS policies *specifically for requests made by this application*. The application uses `window.postMessage` to communicate with such an extension. Without a functioning extension, the Asian countries pages will display a message prompting installation.
 
 **Setup Steps:**
 
@@ -81,11 +81,11 @@ To set up the project locally for development or testing, follow these steps:
 ## 💻 Usage
 
 1.  **Start the application:** Run `npm run dev` after installation.
-2.  **Navigate:** Use the navigation bar at the top to select the desired region/calculation type (Home, Ranjbar, US, UAE, China).
+2.  **Navigate:** Use the navigation bar at the top to select the desired region/calculation type (Home, Ranjbar, US, UAE, China, Turkey).
 3.  **Enter Data:** Fill in the required input fields for the selected calculator:
     * **Ranjbar:** Final Weight (grams), Currency Price.
     * **United States:** Last Weight (grams), New Weight (grams), Currency Price. Toggle the "Express Delivery" checkbox if applicable.
-    * **UAE / China:** Last Weight (grams), New Weight (grams), Price (in specified currency - AED for UAE, USD for China). *Ensure your CORS bypass extension is active.*
+    * **UAE / China / Turkey:** Last Weight (grams), New Weight (grams), Price (in specified currency - AED for UAE, USD for China and TRY for Turkey). *Ensure your CORS bypass extension is active.*
 4.  **View Result:** The calculated cost difference (in Toman) will appear automatically below the inputs once sufficient data is provided. A loading indicator shows during API requests (Asia).
 5.  **Generate Outputs:**
     * Click the **"Note"** button to copy a concise summary of the final weight and cost difference to your clipboard.
@@ -143,7 +143,7 @@ The project follows a standard Vite + React structure, organized for clarity and
 
 ## 💡 Additional Notes
 
-* **CORS Dependency:** The functionality of the UAE and China calculators is **strictly dependent** on a properly configured CORS bypass browser extension. The `AsiaPage.jsx` component contains the logic (`useEffect` hook) to detect the extension's presence and communicate with it. If the extension is not detected or fails, API calls will not succeed.
+* **CORS Dependency:** The functionality of the UAE, China and Turkey calculators is **strictly dependent** on a properly configured CORS bypass browser extension. The `AsiaPage.jsx` component contains the logic (`useEffect` hook) to detect the extension's presence and communicate with it. If the extension is not detected or fails, API calls will not succeed.
 * **Calculation Logic:**
     * `Ranjbar.jsx` and `UnitedState.jsx` contain client-side JavaScript logic for their respective calculations.
     * `AsiaPage.jsx` orchestrates API calls to the external Malltina API (`https://api.malltina.com/api/v1/asia-shop/compute-cost`) via the browser extension to fetch cost data for different weights and calculates the difference. See `src/helpers/asiaAPIReq.js`.
