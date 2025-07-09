@@ -4,6 +4,7 @@ import Ranjbar from "../pages/Ranjbar";
 import UnitedState from "../pages/UnitedState";
 import AsiaPage from "../pages/AsiaPage";
 import Home from "../pages/Home";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const routes = createBrowserRouter([
 	{
@@ -45,8 +46,19 @@ const routes = createBrowserRouter([
 				),
 			},
 			{
+				path: "turkey",
+				element: (
+					<AsiaPage
+						title="turkey"
+						country="turkey"
+						currency="TRY"
+						key="turkey"
+					/>
+				),
+			},
+			{
 				path: "*",
-				element: <h1>page not found</h1>,
+				element: <NotFoundPage />,
 			},
 		],
 	},

@@ -17,10 +17,6 @@ const dropDownLinks = [
 		path: "ranjbar",
 		placeHolder: "ranjbar",
 	},
-	{
-		path: "us-dimension",
-		placeHolder: "usa dimension",
-	},
 ];
 const asiaDropDown = [
 	{
@@ -30,6 +26,10 @@ const asiaDropDown = [
 	{
 		path: "uae",
 		placeHolder: "united arab emirate",
+	},
+	{
+		path: "turkey",
+		placeHolder: "turkey",
 	},
 ];
 const navLinkClass = `text-secondary text-sm font-bold capitalize hover:text-tertiary transition-colors h-full flex items-center justify-center px-5 grow`;

@@ -6,7 +6,7 @@ const MainLayout = () => {
 	return (
 		<div className="bg-primary min-h-dvh font-sans relative">
 			<Nav />
-			<main className="pb-16">
+			<main className="overflow-auto">
 				<Outlet />
 			</main>
 			<Analytics />

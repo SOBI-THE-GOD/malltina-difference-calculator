@@ -68,7 +68,7 @@ const UnitedState = () => {
 			state: newWeight,
 		},
 		{
-			placeHolder: "currency price",
+			placeHolder: "currency price ( USD )",
 			setState: setCPrice,
 			state: cPrice,
 		},
