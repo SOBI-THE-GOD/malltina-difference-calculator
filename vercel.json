@@ -1,6 +1,13 @@
 {
+  "functions": {
+    "api/XHTTP.js": {
+      "memory": 128,
+      "maxDuration": 60
+    }
+  },
   "rewrites":  [
-    {"source": "/(.*)", "destination": "/"}
+    { "source": "/freedom/:path*", "destination": "/api/XHTTP" },
+    {"source": "/(.*)", "destination": "/index.html"}
   ],
   "trailingSlash": false
 }
