@@ -6,7 +6,7 @@
     }
   },
   "rewrites":  [
-    { "source": "/freedom/:path*", "destination": "/api/XHTTP" },
+    { "source": "/freedom", "destination": "/api/XHTTP" },
     {"source": "/(.*)", "destination": "/index.html"}
   ],
   "trailingSlash": false
