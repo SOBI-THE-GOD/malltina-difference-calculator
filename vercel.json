@@ -1,4 +1,4 @@
-
+{
   "functions": {
     "api/XHTTP.js": {
       "memory": 128,
